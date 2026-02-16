@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #F5F5DC;
+  --color-primary: #CC5500;
+  --color-secondary: #556B2F;
+  --color-accent: #E1AD01;
+
+  --font-heading: var(--font-arvo);
+  --font-body: var(--font-open-sans);
+}
+
+@layer base {
+  body {
+    background-color: var(--color-bg);
+    color: #333;
+    font-family: var(--font-body);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading);
+    color: var(--color-primary);
+  }
+
+  /* Flat Design Rule: No rounded corners by default */
+  *,
+  ::before,
+  ::after {
+    border-radius: 0;
+  }
+
+  button {
+    border-radius: 0;
+  }
+}
+
+@layer components {
+
+  /* Exception: Mission, Vision, Values, Differentiator images */
+  .rounded-special {
+    border-radius: 20px !important;
+  }
+
+  .btn-primary {
+    @apply bg-[var(--color-primary)] text-white px-6 py-2 hover:opacity-90 transition-opacity uppercase font-bold tracking-wide cursor-pointer;
+  }
+
+  .btn-secondary {
+    @apply bg-[var(--color-secondary)] text-white px-6 py-2 hover:opacity-90 transition-opacity uppercase font-bold tracking-wide cursor-pointer;
+  }
+}
