@@ -36,7 +36,7 @@ export default function Navbar() {
             <div className="container mx-auto px-6 flex items-center justify-between">
                 {/* Logo */}
                 <Link href="/" className="text-2xl font-bold font-heading text-[var(--color-primary)]">
-                    Frutas<span className="text-[var(--color-secondary)]">Desh</span>
+                    Fruti<span className="text-[var(--color-secondary)]">Nutric</span>
                 </Link>
 
                 {/* Desktop Nav */}
