@@ -41,16 +41,17 @@ export default function CartDrawer() {
             {/* Backdrop */}
             <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" onClick={close} />
 
-            {/* Drawer */}
-            <div className="relative w-full max-w-md bg-white h-full shadow-2xl flex flex-col animate-in slide-in-from-right duration-300">
-                <div className="p-6 border-b flex justify-between items-center bg-[var(--color-bg)]">
-                    <h2 className="text-xl font-bold font-heading text-[var(--color-primary)]">
+            {/* Drawer - Glassmorphism Card Styling */}
+            <div className="relative w-full max-w-md mx-4 my-4 h-[calc(100vh-2rem)] rounded-[2.5rem] bg-white/80 backdrop-blur-xl shadow-2xl flex flex-col animate-in slide-in-from-right duration-500 border border-white/40 overflow-hidden">
+                <div className="p-6 border-b border-white/10 flex justify-between items-center bg-[var(--color-primary)]/5">
+                    <h2 className="text-2xl font-bold font-heading text-[var(--color-primary)]">
                         {checkoutStep === "cart" ? "Tu Carrito" :
-                            checkoutStep === "shipping" ? "Pago" :
+                            checkoutStep === "shipping" ? "Envío" :
                                 checkoutStep === "payment" ? "Pago" : "¡Pedido Exitoso!"}
                     </h2>
-                    <button onClick={close} className="text-gray-500 hover:text-gray-800">
-                        <X className="w-6 h-6" />
+                    {/* Prominent Close Button */}
+                    <button onClick={close} className="bg-white/50 p-2 rounded-full hover:bg-white hover:text-red-500 transition-all text-[var(--color-primary)] shadow-sm">
+                        <X className="w-8 h-8" />
                     </button>
                 </div>
 
