@@ -2,14 +2,14 @@
 
 import React from "react";
 import Image from "next/image";
-import { siteConfig } from "@/config/siteConfig";
+import { tiendaConfig } from "@/configuracion-tienda";
 
 export default function Pillars() {
     const pillars = [
-        siteConfig.pillars.mission,
-        siteConfig.pillars.vision,
-        siteConfig.pillars.values,
-        siteConfig.pillars.differentiator,
+        tiendaConfig.pilares.mision,
+        tiendaConfig.pilares.vision,
+        tiendaConfig.pilares.valores,
+        tiendaConfig.pilares.diferenciador,
     ];
 
     return (
@@ -17,21 +17,22 @@ export default function Pillars() {
             <div className="container mx-auto px-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
                     {pillars.map((pillar, index) => (
-                        <div key={index} className="flex flex-col items-center">
-                            {/* Rounded Special: Excepción solicitada */}
-                            <div className="relative w-48 h-48 mb-6 bg-gray-100 rounded-special overflow-hidden shadow-lg border-4 border-[var(--color-bg)]">
+                        <div key={index} className="flex flex-col items-center bg-white p-6 rounded-3xl shadow-xl border border-gray-100 transition-transform hover:-translate-y-2 duration-300">
+                            {/* Rounded Special: Excepción solicitada - Keeping visual style but wrapped in card */}
+                            <div className="relative w-40 h-40 mb-6 bg-gray-100 rounded-special overflow-hidden shadow-md border-4 border-[var(--color-bg)]">
                                 <Image
-                                    src={pillar.image}
-                                    alt={pillar.title}
+                                    src={pillar.imagen}
+                                    alt={pillar.titulo}
                                     fill
                                     className="object-cover"
+                                    loading="lazy"
                                 />
                             </div>
                             <h3 className="text-xl font-bold font-heading mb-2 text-[var(--color-primary)]">
-                                {pillar.title}
+                                {pillar.titulo}
                             </h3>
-                            <p className="text-sm text-gray-600 leading-relaxed max-w-[200px]">
-                                {pillar.text}
+                            <p className="text-sm text-gray-600 leading-relaxed">
+                                {pillar.texto}
                             </p>
                         </div>
                     ))}

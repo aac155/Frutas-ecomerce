@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Arvo, Open_Sans } from "next/font/google";
 import "./globals.css";
-import { siteConfig } from "@/config/siteConfig";
+import { tiendaConfig } from "@/configuracion-tienda";
 import { StoreProvider } from "@/context/store-context";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -22,8 +22,8 @@ const openSans = Open_Sans({
 });
 
 export const metadata: Metadata = {
-  title: siteConfig.metadata.title,
-  description: siteConfig.metadata.description,
+  title: tiendaConfig.metadatos.titulo,
+  description: tiendaConfig.metadatos.descripcion,
 };
 
 export default function RootLayout({

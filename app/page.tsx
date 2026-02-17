@@ -9,7 +9,7 @@ import DiDiButton from "@/components/DiDiButton";
 
 export default function Home() {
   return (
-    <div className="flex flex-col w-full">
+    <main className="flex flex-col w-full">
       <Hero />
       <Store />
       <About />
@@ -18,6 +18,6 @@ export default function Home() {
       <Process />
       <Reviews />
       <DiDiButton />
-    </div>
+    </main>
   );
 }

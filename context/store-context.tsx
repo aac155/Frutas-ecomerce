@@ -45,7 +45,8 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
     const [user, setUser] = useState<User | null>(null);
 
     const addToCart = (product: Product, quantity: number, toppings: any[]) => {
-        const toppingsPrice = toppings.reduce((sum, t) => sum + t.price, 0);
+        // toppings are from tiendaConfig: { id, nombre, precio }
+        const toppingsPrice = toppings.reduce((sum, t) => sum + t.precio, 0);
         const itemTotalPrice = (product.price + toppingsPrice) * quantity;
 
         // Create a unique ID based on product + toppings to distinguish variations
@@ -66,7 +67,7 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
                     ...product,
                     id: cartItemId, // Use unique ID for cart item
                     quantity,
-                    toppings: toppings.map(t => t.name),
+                    toppings: toppings.map(t => t.nombre),
                     totalPrice: itemTotalPrice,
                 },
             ];

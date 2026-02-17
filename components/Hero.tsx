@@ -1,36 +1,51 @@
 "use client";
 
 import React from "react";
-import { siteConfig } from "@/config/siteConfig";
+import { tiendaConfig } from "@/configuracion-tienda";
 
 export default function Hero() {
+    const [currentImageIndex, setCurrentImageIndex] = React.useState(0);
+    const images = tiendaConfig.hero.imagenesCarrusel;
+
+    React.useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+        }, 5000); // Change every 5 seconds
+
+        return () => clearInterval(interval);
+    }, [images.length]);
+
     return (
         <section id="hero" className="relative h-[80vh] w-full overflow-hidden flex items-center justify-center">
-            {/* Video Background */}
+            {/* Image Carousel Background */}
             <div className="absolute inset-0 z-0">
-                {/* Placeholder for video. In production, this would be a real video file. 
-             Since I don't have the video file, I'll use a commercially available placeholder or a div with a gradient/image.
-             The user requested a video loop. I will code it to look for /video/hero-loop.mp4 but fallback to a nice background if missing.
-         */}
-                <video
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className="h-full w-full object-cover"
-                >
-                    <source src={siteConfig.hero.video} type="video/mp4" />
-                    {/* Fallback if video fails or is missing during dev */}
-                    <div className="h-full w-full bg-neutral-800" />
-                </video>
+                {images.map((src, index) => (
+                    <div
+                        key={src}
+                        className={`absolute inset-0 transition-opacity duration-[1200ms] ease-in-out ${index === currentImageIndex ? "opacity-100" : "opacity-0"
+                            }`}
+                    >
+                        {/* Using standard img for now since explicit width/height might be tricky with fill, 
+                             but Next.js Image with fill is better. User asked for loading='lazy' on all images, 
+                             Next.js Image defaults to lazy. Priority for Hero is better practice but instruction said "loading='lazy' ALL images". 
+                             I'll use Next.js Image with fill and lazy loading (default). 
+                         */}
+                        <img
+                            src={src}
+                            alt={`Slide ${index + 1}`}
+                            className="h-full w-full object-cover"
+                            loading="lazy"
+                        />
+                    </div>
+                ))}
                 {/* Overlay to ensure text readability */}
                 <div className="absolute inset-0 bg-black/40" />
             </div>
 
             {/* Content */}
-            <div className="relative z-10 text-center px-6 max-w-4xl">
+            <header className="relative z-10 text-center px-6 max-w-4xl">
                 <h1 className="text-4xl md:text-6xl font-bold font-heading text-white mb-6 leading-tight drop-shadow-md">
-                    "{siteConfig.hero.text}"
+                    Fruta de Calidad Premium en CDMX | Certificación Internacional
                 </h1>
                 <button
                     onClick={() => document.getElementById('store')?.scrollIntoView({ behavior: 'smooth' })}
@@ -38,7 +53,7 @@ export default function Hero() {
                 >
                     Descubrir Sabores
                 </button>
-            </div>
+            </header>
         </section>
     );
 }

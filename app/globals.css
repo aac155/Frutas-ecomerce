@@ -2,9 +2,9 @@
 
 @theme {
   --color-bg: #F5F5DC;
-  --color-primary: #CC5500;
-  --color-secondary: #556B2F;
-  --color-accent: #E1AD01;
+  --color-primary: #1A4D2E;
+  --color-secondary: #D4AF37;
+  --color-accent: #C5A028;
 
   --font-heading: var(--font-arvo);
   --font-body: var(--font-open-sans);

@@ -80,8 +80,10 @@ export default function CartDrawer() {
                                                     </p>
                                                 )}
                                                 <div className="flex justify-between items-center mt-2">
-                                                    <span className="text-sm text-gray-600">Qty: {item.quantity}</span>
-                                                    <span className="font-bold text-[var(--color-secondary)]">${item.totalPrice}</span>
+                                                    <span className="text-sm text-gray-600">Cant: {item.quantity}</span>
+                                                    <span className="font-bold text-[var(--color-secondary)]">
+                                                        {new Intl.NumberFormat('es-MX', { style: 'currency', currency: 'MXN' }).format(item.totalPrice)}
+                                                    </span>
                                                 </div>
                                             </div>
                                             <button
@@ -177,9 +179,19 @@ export default function CartDrawer() {
                     <div className="p-6 border-t bg-gray-50">
                         {checkoutStep === "cart" && (
                             <>
-                                <div className="flex justify-between items-center mb-4">
-                                    <span className="text-lg font-bold">Total:</span>
-                                    <span className="text-2xl font-bold text-[var(--color-primary)]">${total}</span>
+                                <div className="space-y-2 mb-4">
+                                    <div className="flex justify-between items-center text-sm text-gray-600">
+                                        <span>Subtotal:</span>
+                                        <span>{new Intl.NumberFormat('es-MX', { style: 'currency', currency: 'MXN' }).format(total / 1.16)}</span>
+                                    </div>
+                                    <div className="flex justify-between items-center text-sm text-gray-600">
+                                        <span>IVA (16%):</span>
+                                        <span>{new Intl.NumberFormat('es-MX', { style: 'currency', currency: 'MXN' }).format(total - (total / 1.16))}</span>
+                                    </div>
+                                    <div className="flex justify-between items-center text-xl font-bold border-t border-gray-200 pt-2">
+                                        <span>Total:</span>
+                                        <span className="text-[var(--color-primary)]">{new Intl.NumberFormat('es-MX', { style: 'currency', currency: 'MXN' }).format(total)}</span>
+                                    </div>
                                 </div>
                                 <button onClick={handleCheckout} className="btn-primary w-full">
                                     Proceder al Pago
@@ -197,7 +209,7 @@ export default function CartDrawer() {
                                 className="btn-primary w-full"
                                 disabled={!paymentMethod}
                             >
-                                Pagar ${total}
+                                Pagar {new Intl.NumberFormat('es-MX', { style: 'currency', currency: 'MXN' }).format(total)}
                             </button>
                         )}
                         {checkoutStep !== "cart" && (

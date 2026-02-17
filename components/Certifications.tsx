@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { siteConfig } from "@/config/siteConfig";
+import { tiendaConfig } from "@/configuracion-tienda";
 import { ShieldCheck, Award } from "lucide-react";
 
 export default function Certifications() {
@@ -20,24 +20,24 @@ export default function Certifications() {
                     Certificaciones de Calidad
                 </h2>
 
-                <div className="flex flex-wrap justify-center gap-12">
-                    {siteConfig.certifications.map((cert) => (
+                <div className="flex flex-wrap justify-center gap-8">
+                    {tiendaConfig.certificaciones.map((cert) => (
                         <div
-                            key={cert.name}
-                            className="relative group p-4"
-                            onMouseEnter={() => setHoveredCert(cert.name)}
+                            key={cert.nombre}
+                            className="relative group p-6 bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 w-48 flex flex-col items-center justify-center border border-gray-100"
+                            onMouseEnter={() => setHoveredCert(cert.nombre)}
                             onMouseLeave={() => setHoveredCert(null)}
                         >
-                            <div className="transition-transform duration-300 transform group-hover:-translate-y-2 cursor-help">
-                                {getIcon(cert.name)}
-                                <p className="mt-2 font-bold text-gray-700">{cert.name}</p>
+                            <div className="transition-transform duration-300 transform group-hover:-translate-y-2 cursor-help flex flex-col items-center">
+                                {getIcon(cert.nombre)}
+                                <p className="mt-4 font-bold text-[var(--color-primary)] text-lg">{cert.nombre}</p>
                             </div>
 
                             {/* Tooltip */}
-                            {hoveredCert === cert.name && (
-                                <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-4 w-48 bg-white text-gray-800 text-xs p-3 shadow-xl border border-[var(--color-accent)] z-20 animate-in fade-in zoom-in-95 duration-200">
-                                    <p className="font-semibold mb-1">{cert.name}</p>
-                                    <p>{cert.description}</p>
+                            {hoveredCert === cert.nombre && (
+                                <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-4 w-56 bg-white text-gray-800 text-sm p-4 shadow-2xl rounded-xl border border-[var(--color-accent)] z-20 animate-in fade-in zoom-in-95 duration-200">
+                                    <p className="font-bold mb-1 text-[var(--color-secondary)]">{cert.nombre}</p>
+                                    <p className="leading-snug">{cert.descripcion}</p>
                                     {/* Triangle */}
                                     <div className="absolute top-full left-1/2 transform -translate-x-1/2 border-8 border-transparent border-t-white" />
                                 </div>

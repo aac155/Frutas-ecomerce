@@ -59,7 +59,7 @@ export default function Navbar() {
                         className="flex items-center space-x-2 text-[var(--color-secondary)] hover:text-[var(--color-primary)] transition-colors"
                     >
                         <User className="h-5 w-5" />
-                        <span className="text-sm font-medium">{user ? user.name.split(" ")[0] : "Ingreso"}</span>
+                        <span className="text-sm font-medium">{user ? user.name.split(" ")[0] : "Ingresar"}</span>
                     </button>
 
                     <button
@@ -107,7 +107,7 @@ export default function Navbar() {
                                 className="flex items-center space-x-2 text-[var(--color-secondary)]"
                             >
                                 <User className="h-5 w-5" />
-                                <span>{user ? user.name : "Ingreso / Registro"}</span>
+                                <span>{user ? user.name : "Ingresar / Registrarse"}</span>
                             </button>
                             <button
                                 onClick={() => {
