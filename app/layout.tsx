@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Arvo, Open_Sans } from "next/font/google";
+import { Arvo, Open_Sans, Playfair_Display } from "next/font/google"; // Added Playfair_Display
 import "./globals.css";
 import { tiendaConfig } from "@/configuracion-tienda";
 import { StoreProvider } from "@/context/store-context";
@@ -21,6 +21,12 @@ const openSans = Open_Sans({
   weight: ["300", "400", "600", "700"],
 });
 
+const playfair = Playfair_Display({ // Configured Playfair
+  variable: "--font-playfair",
+  subsets: ["latin"],
+  weight: ["400", "700"],
+});
+
 export const metadata: Metadata = {
   title: tiendaConfig.metadatos.titulo,
   description: tiendaConfig.metadatos.descripcion,
@@ -34,7 +40,7 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body
-        className={`${arvo.variable} ${openSans.variable} antialiased bg-[var(--color-bg)] text-gray-800`}
+        className={`${arvo.variable} ${openSans.variable} ${playfair.variable} antialiased bg-[var(--color-bg)] text-gray-800`}
       >
         <StoreProvider>
           <Navbar />

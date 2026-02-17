@@ -144,27 +144,37 @@ export default function Store() {
                 </div>
 
                 {/* Flex System: Centered and wrapped */}
-                <div className="flex flex-wrap justify-center gap-8">
-                    {sortedProducts.map((producto) => (
+                <div className="flex flex-wrap justify-center gap-12">
+                    {sortedProducts.map((producto, index) => (
                         <div
                             key={producto.id}
-                            className="group relative bg-[var(--color-bg)] shadow-[0_4px_12px_-2px_rgba(0,0,0,0.1)] hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col w-full sm:w-[45%] lg:w-[30%] xl:w-[18%]"
+                            className={`group relative bg-[whitesmoke] rounded-[2.5rem] border border-[var(--color-accent)]/20 shadow-sm hover:shadow-2xl transition-all duration-500 overflow-hidden flex flex-col w-full sm:w-[48%] lg:w-[30%] xl:w-[22%] hover:scale-105 animate-in fade-in slide-in-from-bottom-8 duration-700`}
+                            style={{ animationDelay: `${index * 100}ms` }}
                         >
-                            {/* Image Container */}
-                            <div className="relative h-64 w-full overflow-hidden bg-gray-200">
-                                {/* Fallback for missing images */}
-                                <div className="absolute inset-0 flex items-center justify-center text-gray-400">
-                                    Sin Imagen
+                            {/* Image Container with Circular Background */}
+                            <div className="relative aspect-square w-full p-8 overflow-hidden bg-[whitesmoke]">
+                                <div className="absolute inset-0 m-auto w-[80%] h-[80%] rounded-full bg-[var(--color-secondary)]/5 blur-3xl transform group-hover:scale-125 transition-transform duration-700"></div>
+                                <div className="relative w-full h-full drop-shadow-2xl">
+                                    <Image
+                                        src={producto.imagen}
+                                        alt={producto.nombre}
+                                        fill
+                                        loading="lazy"
+                                        className="object-contain transition-transform duration-700 group-hover:scale-110 group-hover:rotate-3"
+                                    />
                                 </div>
-                                <Image
-                                    src={producto.imagen}
-                                    alt={producto.nombre}
-                                    fill
-                                    loading="lazy"
-                                    className="object-cover transition-transform duration-500 group-hover:scale-110"
-                                />
+                            </div>
 
-                                {/* Add Button Overlay */}
+                            {/* Clean Info */}
+                            <div className="p-8 pt-0 flex flex-col items-center text-center flex-grow">
+                                <h3 className="text-2xl font-bold font-heading mb-2 text-[var(--color-primary)]">
+                                    {producto.nombre}
+                                </h3>
+
+                                <span className="text-3xl text-[var(--color-primary)] mb-6 font-[family-name:var(--font-playfair)]">
+                                    {new Intl.NumberFormat('es-MX', { style: 'currency', currency: 'MXN' }).format(producto.precio)}
+                                </span>
+
                                 <button
                                     onClick={() => handleAddToCartClick({
                                         id: producto.id,
@@ -173,36 +183,11 @@ export default function Store() {
                                         image: producto.imagen,
                                         description: producto.descripcion
                                     })}
-                                    className="absolute bottom-4 right-4 bg-[var(--color-primary)] text-white p-3 shadow-lg hover:bg-[var(--color-secondary)] transition-colors transform translate-y-12 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 duration-300"
-                                    aria-label="Agregar al carrito"
+                                    className="w-full mt-auto bg-[var(--color-primary)] text-[var(--color-secondary)] py-3 rounded-full font-bold uppercase tracking-wider shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 relative overflow-hidden group/btn border border-[var(--color-secondary)]/30"
                                 >
-                                    <Plus className="h-6 w-6" />
+                                    <span className="relative z-10">Comprar Ahora</span>
+                                    <div className="absolute inset-0 bg-[var(--color-secondary)]/20 translate-y-full group-hover/btn:translate-y-0 transition-transform duration-300"></div>
                                 </button>
-                            </div>
-
-                            {/* Info */}
-                            <div className="p-6 flex-grow flex flex-col justify-between">
-                                <div>
-                                    <h3 className="text-xl font-bold font-heading mb-2">{producto.nombre}</h3>
-                                    <p className="text-sm text-gray-600 mb-4">{producto.descripcion}</p>
-                                </div>
-                                <div className="flex justify-between items-end mt-auto">
-                                    <span className="text-2xl font-bold text-[var(--color-secondary)]">
-                                        {new Intl.NumberFormat('es-MX', { style: 'currency', currency: 'MXN' }).format(producto.precio)}
-                                    </span>
-                                    <button
-                                        onClick={() => handleAddToCartClick({
-                                            id: producto.id,
-                                            name: producto.nombre,
-                                            price: producto.precio,
-                                            image: producto.imagen,
-                                            description: producto.descripcion
-                                        })}
-                                        className="text-xs bg-transparent border border-[var(--color-primary)] text-[var(--color-primary)] px-4 py-2 hover:bg-[var(--color-primary)] hover:text-white transition-all rounded-full font-bold uppercase tracking-wider"
-                                    >
-                                        Añadir a la Selección
-                                    </button>
-                                </div>
                             </div>
                         </div>
                     ))}
