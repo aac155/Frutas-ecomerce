@@ -5,10 +5,10 @@ import { tiendaConfig } from "@/configuracion-tienda";
 
 export default function Footer() {
     return (
-        <footer className="bg-[var(--color-secondary)] text-white pt-12 pb-6 mt-auto">
+        <footer className="bg-[var(--color-primary)] text-white pt-12 pb-6 mt-auto">
             <div className="container mx-auto px-6">
                 {/* Map Section - Low Saturation and Rounded */}
-                <div className="mb-12 w-full h-64 rounded-[2rem] overflow-hidden shadow-xl border-4 border-white/10">
+                <div className="mb-12 w-full max-w-4xl mx-auto h-96 rounded-[3rem] overflow-hidden shadow-2xl border border-[var(--color-secondary)]">
                     <iframe
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3765.23456789!2d-99.0123456!3d19.2890123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDE3JzIwLjQiTiA5OcKwMDAnNDQuNCJX!5e0!3m2!1ses-419!2smx!4v1600000000000!5m2!1ses-419!2smx"
                         width="100%"

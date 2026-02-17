@@ -172,7 +172,7 @@ export default function Store() {
                                 </h3>
 
                                 <span className="text-3xl text-[var(--color-primary)] mb-6 font-[family-name:var(--font-playfair)]">
-                                    {new Intl.NumberFormat('es-MX', { style: 'currency', currency: 'MXN' }).format(producto.precio)}
+                                    MXN {new Intl.NumberFormat('es-MX', { style: 'currency', currency: 'MXN' }).format(producto.precio)}
                                 </span>
 
                                 <button
@@ -183,10 +183,10 @@ export default function Store() {
                                         image: producto.imagen,
                                         description: producto.descripcion
                                     })}
-                                    className="w-full mt-auto bg-[var(--color-primary)] text-[var(--color-secondary)] py-3 rounded-full font-bold uppercase tracking-wider shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 relative overflow-hidden group/btn border border-[var(--color-secondary)]/30"
+                                    className="w-full mt-auto bg-[var(--color-primary)] text-white py-3 rounded-full font-bold uppercase tracking-wider shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 relative overflow-hidden group/btn border border-white/20"
                                 >
-                                    <span className="relative z-10">Comprar Ahora</span>
-                                    <div className="absolute inset-0 bg-[var(--color-secondary)]/20 translate-y-full group-hover/btn:translate-y-0 transition-transform duration-300"></div>
+                                    <span className="relative z-10">Añadir al Carrito</span>
+                                    <div className="absolute inset-0 bg-white/20 translate-y-full group-hover/btn:translate-y-0 transition-transform duration-300"></div>
                                 </button>
                             </div>
                         </div>

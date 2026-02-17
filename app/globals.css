@@ -2,9 +2,13 @@
 
 @theme {
   --color-bg: #F5F5DC;
-  --color-primary: #1A4D2E;
+  --color-primary: #4F7942;
+  /* Fern Green */
   --color-secondary: #D4AF37;
+  /* Gold */
   --color-accent: #C5A028;
+  --color-text-body: #1A2F23;
+  /* Forest Green for text */
 
   --font-heading: var(--font-arvo);
   --font-body: var(--font-open-sans);
@@ -13,7 +17,7 @@
 @layer base {
   body {
     background-color: var(--color-bg);
-    color: #333;
+    color: var(--color-text-body);
     font-family: var(--font-body);
   }
 
