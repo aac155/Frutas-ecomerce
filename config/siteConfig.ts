@@ -91,7 +91,7 @@ export const siteConfig = {
       },
       {
         title: "Sostenibilidad",
-        image: "/img/val3.jpg",
+        image: "/img/Val3.jpg",
         text: "Empaques biodegradables y procesos limpios.",
       },
     ],
