@@ -46,7 +46,7 @@ export default function CartDrawer() {
                 <div className="p-6 border-b flex justify-between items-center bg-[var(--color-bg)]">
                     <h2 className="text-xl font-bold font-heading text-[var(--color-primary)]">
                         {checkoutStep === "cart" ? "Tu Carrito" :
-                            checkoutStep === "shipping" ? "Envío" :
+                            checkoutStep === "shipping" ? "Pago" :
                                 checkoutStep === "payment" ? "Pago" : "¡Pedido Exitoso!"}
                     </h2>
                     <button onClick={close} className="text-gray-500 hover:text-gray-800">
@@ -100,17 +100,30 @@ export default function CartDrawer() {
                     {checkoutStep === "shipping" && (
                         <form id="shipping-form" onSubmit={handleShippingSubmit} className="space-y-4">
                             <div>
-                                <label className="block text-sm font-bold mb-1">Dirección de Envío</label>
+                                <label className="block text-sm font-bold mb-1">Nombre Completo</label>
                                 <input type="text" required className="input-flat w-full border p-2" placeholder="Calle, Número, Col..." />
                             </div>
+                            <div>
+                                <label className="block text-sm font-bold mb-1">Dirección Completa</label>
+                                <input type="text" required className="input-flat w-full border p-2" placeholder="Calle, Número, Col..." />
+                            </div>
+
                             <div className="grid grid-cols-2 gap-4">
                                 <div>
                                     <label className="block text-sm font-bold mb-1">Ciudad</label>
+                                    <input type="text" required className="input-flat w-full border p-2" placeholder="Calle, Número, Col..." />
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-bold mb-1">Alcaldía</label>
                                     <input type="text" required className="input-flat w-full border p-2" placeholder="CDMX" />
                                 </div>
                                 <div>
                                     <label className="block text-sm font-bold mb-1">CP</label>
                                     <input type="text" required className="input-flat w-full border p-2" placeholder="00000" />
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-bold mb-1">Número de Teléfono</label>
+                                    <input type="text" required className="input-flat w-full border p-2" placeholder="Calle, Número, Col..." />
                                 </div>
                             </div>
                         </form>
@@ -129,8 +142,8 @@ export default function CartDrawer() {
                                     key={method.id}
                                     onClick={() => setPaymentMethod(method.id)}
                                     className={`flex items-center gap-3 p-4 border cursor-pointer transition-colors ${paymentMethod === method.id
-                                            ? "border-[var(--color-primary)] bg-[var(--color-bg)]"
-                                            : "border-gray-200 hover:bg-gray-50"
+                                        ? "border-[var(--color-primary)] bg-[var(--color-bg)]"
+                                        : "border-gray-200 hover:bg-gray-50"
                                         }`}
                                 >
                                     {method.icon}
