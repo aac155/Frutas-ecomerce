@@ -9,7 +9,26 @@ import { useStore } from "@/context/store-context";
 
 export default function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false);
-    // ... existing code ...
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const { cart, toggleCart, openAuthModal, user } = useStore();
+
+    const cartCount = cart.reduce((acc, item) => acc + item.quantity, 0);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setIsScrolled(window.scrollY > 20);
+        };
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
+    const navLinks = [
+        { name: "Inicio", href: "#hero" },
+        { name: "Tienda", href: "#store" },
+        { name: "Nosotros", href: "#about" },
+        { name: "Proceso", href: "#process" },
+    ];
+
     return (
         <nav
             className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled ? "bg-[var(--color-primary)]/95 backdrop-blur-md shadow-md py-4" : "bg-[var(--color-primary)] py-6"

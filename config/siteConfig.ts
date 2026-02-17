@@ -68,7 +68,7 @@ export const siteConfig = {
         price: 110,
         image: "/img/fresa.jpg",
         description: "Intenso sabor a fresa real, crujiente y deliciosa.",
-      },*/
+      },
     ],
     toppings: [
       { id: "t1", name: "Plátano", price: 20 },
