@@ -55,20 +55,20 @@ export const siteConfig = {
         image: "/img/nara2.jpeg",
         description: "Prueba el sabor de la naranja deshidratada."
       },
-      /* {
-         id: "p4",
-         name: "Mix Tropical",
-         price: 95,
-         image: "/img/mix.jpg",
-         description: "Una explosión de sabores en cada bocado.",
-       },
-       {
-         id: "p5",
-         name: "Fresa Natural",
-         price: 110,
-         image: "/img/fresa.jpg",
-         description: "Intenso sabor a fresa real, crujiente y deliciosa.",
-       },*/
+      {
+        id: "p4",
+        name: "Mix Tropical",
+        price: 95,
+        image: "/img/mix.jpg",
+        description: "Una explosión de sabores en cada bocado.",
+      },
+      {
+        id: "p5",
+        name: "Fresa Natural",
+        price: 110,
+        image: "/img/fresa.jpg",
+        description: "Intenso sabor a fresa real, crujiente y deliciosa.",
+      },*/
     ],
     toppings: [
       { id: "t1", name: "Plátano", price: 20 },
