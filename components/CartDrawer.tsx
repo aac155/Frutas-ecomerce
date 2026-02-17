@@ -101,8 +101,9 @@ export default function CartDrawer() {
                         <form id="shipping-form" onSubmit={handleShippingSubmit} className="space-y-4">
                             <div>
                                 <label className="block text-sm font-bold mb-1">Nombre Completo</label>
-                                <input type="text" required className="input-flat w-full border p-2" placeholder="Calle, Número, Col..." />
+                                <input type="text" required className="input-flat w-full border p-2" placeholder="Ingresa tu nombre completo" />
                             </div>
+
                             <div>
                                 <label className="block text-sm font-bold mb-1">Dirección Completa</label>
                                 <input type="text" required className="input-flat w-full border p-2" placeholder="Calle, Número, Col..." />
@@ -111,7 +112,7 @@ export default function CartDrawer() {
                             <div className="grid grid-cols-2 gap-4">
                                 <div>
                                     <label className="block text-sm font-bold mb-1">Ciudad</label>
-                                    <input type="text" required className="input-flat w-full border p-2" placeholder="Calle, Número, Col..." />
+                                    <input type="text" required className="input-flat w-full border p-2" placeholder="CDMX" />
                                 </div>
                                 <div>
                                     <label className="block text-sm font-bold mb-1">Alcaldía</label>
@@ -123,7 +124,7 @@ export default function CartDrawer() {
                                 </div>
                                 <div>
                                     <label className="block text-sm font-bold mb-1">Número de Teléfono</label>
-                                    <input type="text" required className="input-flat w-full border p-2" placeholder="Calle, Número, Col..." />
+                                    <input type="text" required className="input-flat w-full border p-2" placeholder="Ingresa tu número de teléfono" />
                                 </div>
                             </div>
                         </form>
@@ -162,7 +163,7 @@ export default function CartDrawer() {
                                 ¡Gracias por su compra!
                             </h3>
                             <p className="text-gray-600 mb-6">
-                                Su pedido ha sido procesado exitosamente. Recibirá un correo de confirmación pronto.
+                                Llegando a tu domicilio, te contactaremos vía telefónica.
                             </p>
                             <button onClick={close} className="btn-primary">
                                 Cerrar
