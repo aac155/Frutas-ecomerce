@@ -7,75 +7,76 @@ export default function Footer() {
     return (
         <footer className="bg-[var(--color-primary)] text-white pt-12 pb-6 mt-auto">
             <div className="container mx-auto px-6">
-                {/* Map Section - Low Saturation and Rounded */}
-                <div className="mb-12 w-full max-w-4xl mx-auto h-96 rounded-[3rem] overflow-hidden shadow-2xl border border-[var(--color-secondary)]">
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3765.23456789!2d-99.0123456!3d19.2890123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDE3JzIwLjQiTiA5OcKwMDAnNDQuNCJX!5e0!3m2!1ses-419!2smx!4v1600000000000!5m2!1ses-419!2smx"
-                        width="100%"
-                        height="100%"
-                        style={{ border: 0, filter: "grayscale(0.4) saturate(0.6)" }}
-                        allowFullScreen
-                        loading="lazy"
-                        referrerPolicy="no-referrer-when-downgrade"
-                        title="Ubicación Metro Tláhuac"
-                        className="w-full h-full"
-                    ></iframe>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-                    {/* Brand */}
-                    <div className="md:col-span-1">
-                        <h3 className="text-2xl font-bold font-heading mb-4 text-[var(--color-accent)]">
-                            FrutasDesh
-                        </h3>
-                        <p className="text-sm opacity-90 leading-relaxed">
-                            {tiendaConfig.pilares.mision.texto}
-                        </p>
+                <div className="flex flex-col lg:flex-row gap-12 items-start items-stretch">
+                    {/* Left Column: Map */}
+                    <div className="w-full lg:w-auto lg:flex-none">
+                        <div className="w-full lg:w-[28rem] h-80 lg:h-full rounded-[2rem] overflow-hidden shadow-xl border border-[var(--color-secondary)] relative z-10">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3765.23456789!2d-99.0123456!3d19.2890123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDE3JzIwLjQiTiA5OcKwMDAnNDQuNCJX!5e0!3m2!1ses-419!2smx!4v1600000000000!5m2!1ses-419!2smx"
+                                width="100%"
+                                height="100%"
+                                style={{ border: 0, filter: "grayscale(0.4) saturate(0.6)" }}
+                                allowFullScreen
+                                loading="lazy"
+                                referrerPolicy="no-referrer-when-downgrade"
+                                title="Ubicación Metro Tláhuac"
+                                className="w-full h-full"
+                            ></iframe>
+                        </div>
                     </div>
 
-                    {/* Quick Links */}
-                    <div>
-                        <h4 className="text-lg font-bold mb-4 font-heading text-[var(--color-accent)]">Enlaces</h4>
-                        <ul className="space-y-2">
-                            <li><Link href="#store" className="hover:text-[var(--color-accent)] transition-colors">Tienda</Link></li>
-                            <li><Link href="#about" className="hover:text-[var(--color-accent)] transition-colors">Nosotros</Link></li>
-                            <li><Link href="#certifications" className="hover:text-[var(--color-accent)] transition-colors">Certificaciones</Link></li>
-                            <li><Link href="#" className="hover:text-[var(--color-accent)] transition-colors">Términos y Condiciones</Link></li>
-                        </ul>
-                    </div>
+                    {/* Right Column: Content */}
+                    <div className="flex-1 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                        {/* Brand */}
+                        <div className="md:col-span-1 lg:col-span-2">
+                            <h3 className="text-2xl font-bold font-heading mb-4 text-[var(--color-accent)]">
+                                FrutasDesh
+                            </h3>
+                            <p className="text-sm opacity-90 leading-relaxed text-white/80">
+                                {tiendaConfig.pilares.mision.texto}
+                            </p>
 
-                    {/* Contact */}
-                    <div>
-                        <h4 className="text-lg font-bold mb-4 font-heading text-[var(--color-accent)]">Contacto</h4>
-                        <ul className="space-y-3">
-                            <li className="flex items-center space-x-3">
-                                <MapPin className="h-5 w-5 text-[var(--color-accent)]" />
-                                <span className="text-sm">{tiendaConfig.contacto.direccion}</span>
-                            </li>
-                            <li className="flex items-center space-x-3">
-                                <Phone className="h-5 w-5 text-[var(--color-accent)]" />
-                                <span className="text-sm">{tiendaConfig.contacto.telefono}</span>
-                            </li>
-                            <li className="flex items-center space-x-3">
-                                <Mail className="h-5 w-5 text-[var(--color-accent)]" />
-                                <span className="text-sm">{tiendaConfig.contacto.email}</span>
-                            </li>
-                        </ul>
-                    </div>
+                            {/* Social Icons moved under brand for balance */}
+                            <div className="flex space-x-4 mt-6">
+                                <a href={tiendaConfig.redesSociales.facebook} target="_blank" rel="noopener noreferrer" className="bg-white/10 p-2 rounded-full hover:bg-[var(--color-accent)] hover:text-[var(--color-secondary)] transition-all">
+                                    <Facebook className="h-5 w-5" />
+                                </a>
+                                <a href={tiendaConfig.redesSociales.twitter} target="_blank" rel="noopener noreferrer" className="bg-white/10 p-2 rounded-full hover:bg-[var(--color-accent)] hover:text-[var(--color-secondary)] transition-all">
+                                    <Twitter className="h-5 w-5" />
+                                </a>
+                                <a href={tiendaConfig.redesSociales.instagram} target="_blank" rel="noopener noreferrer" className="bg-white/10 p-2 rounded-full hover:bg-[var(--color-accent)] hover:text-[var(--color-secondary)] transition-all">
+                                    <Instagram className="h-5 w-5" />
+                                </a>
+                            </div>
+                        </div>
 
-                    {/* Social */}
-                    <div>
-                        <h4 className="text-lg font-bold mb-4 font-heading text-[var(--color-accent)]">Síguenos</h4>
-                        <div className="flex space-x-4">
-                            <a href={tiendaConfig.redesSociales.facebook} target="_blank" rel="noopener noreferrer" className="bg-white/10 p-2 hover:bg-[var(--color-accent)] hover:text-[var(--color-secondary)] transition-all">
-                                <Facebook className="h-6 w-6" />
-                            </a>
-                            <a href={tiendaConfig.redesSociales.twitter} target="_blank" rel="noopener noreferrer" className="bg-white/10 p-2 hover:bg-[var(--color-accent)] hover:text-[var(--color-secondary)] transition-all">
-                                <Twitter className="h-6 w-6" />
-                            </a>
-                            <a href={tiendaConfig.redesSociales.instagram} target="_blank" rel="noopener noreferrer" className="bg-white/10 p-2 hover:bg-[var(--color-accent)] hover:text-[var(--color-secondary)] transition-all">
-                                <Instagram className="h-6 w-6" />
-                            </a>
+                        {/* Quick Links */}
+                        <div>
+                            <h4 className="text-lg font-bold mb-4 font-heading text-[var(--color-accent)]">Enlaces</h4>
+                            <ul className="space-y-2">
+                                <li><Link href="#store" className="hover:text-[var(--color-accent)] transition-colors text-sm">Tienda</Link></li>
+                                <li><Link href="#about" className="hover:text-[var(--color-accent)] transition-colors text-sm">Nosotros</Link></li>
+                                <li><Link href="#certifications" className="hover:text-[var(--color-accent)] transition-colors text-sm">Certificaciones</Link></li>
+                            </ul>
+                        </div>
+
+                        {/* Contact */}
+                        <div>
+                            <h4 className="text-lg font-bold mb-4 font-heading text-[var(--color-accent)]">Contacto</h4>
+                            <ul className="space-y-3">
+                                <li className="flex items-center space-x-3">
+                                    <MapPin className="h-4 w-4 text-[var(--color-accent)]" />
+                                    <span className="text-sm">{tiendaConfig.contacto.direccion}</span>
+                                </li>
+                                <li className="flex items-center space-x-3">
+                                    <Phone className="h-4 w-4 text-[var(--color-accent)]" />
+                                    <span className="text-sm">{tiendaConfig.contacto.telefono}</span>
+                                </li>
+                                <li className="flex items-center space-x-3">
+                                    <Mail className="h-4 w-4 text-[var(--color-accent)]" />
+                                    <span className="text-sm">{tiendaConfig.contacto.email}</span>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>

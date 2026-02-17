@@ -46,51 +46,62 @@ function ToppingsModal({
     };
 
     return (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-xl p-4">
-            <div className="bg-white/90 backdrop-blur-md p-6 w-full max-w-md shadow-2xl rounded-3xl animate-in fade-in zoom-in-95 duration-200 border border-white/20">
-                <h3 className="text-2xl font-bold font-heading text-[var(--color-primary)] mb-2">
-                    Personaliza tu {product.name}
-                </h3>
-                <p className="text-gray-600 mb-4">Agrega +100g de tus frutas favoritas.</p>
+        <div className="fixed inset-0 z-[60] flex items-center justify-center bg-black/60 backdrop-blur-xl p-4">
+            <div className="bg-[#F5F5DC] p-8 w-full max-w-2xl shadow-2xl rounded-[3rem] animate-in fade-in zoom-in-95 duration-300 border border-[var(--color-secondary)] relative">
+                {/* Prominent Close Button */}
+                <button
+                    onClick={onClose}
+                    className="absolute top-6 right-6 p-2 bg-white/50 hover:bg-white rounded-full transition-colors text-[var(--color-primary)]"
+                >
+                    <Plus className="w-8 h-8 rotate-45" />
+                </button>
 
-                <div className="space-y-3 mb-6">
+                <div className="text-center mb-8">
+                    <h3 className="text-3xl font-bold font-heading text-[var(--color-primary)] mb-2">
+                        Personaliza tu {product.name}
+                    </h3>
+                    <p className="text-[var(--color-text-body)] opacity-80">Selecciona tus acompañamientos favoritos (+100g)</p>
+                </div>
+
+                {/* Visual Selection Grid */}
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 mb-10 justify-items-center">
                     {tiendaConfig.tienda.toppings.map((topping) => (
                         <div
                             key={topping.id}
                             onClick={() => toggleTopping(topping.id)}
-                            className={`flex justify-between items-center p-3 border cursor-pointer transition-colors rounded-xl ${selectedToppings.includes(topping.id)
-                                ? "border-[var(--color-primary)] bg-[var(--color-bg)]"
-                                : "border-gray-200 hover:border-[var(--color-accent)]"
-                                }`}
+                            className="flex flex-col items-center cursor-pointer group"
                         >
-                            <div className="flex items-center space-x-2">
-                                <div className={`w-5 h-5 border flex items-center justify-center rounded-full ${selectedToppings.includes(topping.id) ? "bg-[var(--color-primary)] border-[var(--color-primary)]" : "border-gray-300"
-                                    }`}>
-                                    {selectedToppings.includes(topping.id) && <span className="text-white text-xs">✓</span>}
-                                </div>
-                                <span>{topping.nombre}</span>
+                            <div className={`w-24 h-24 rounded-full flex items-center justify-center transition-all duration-300 shadow-md border-4 relative overflow-hidden ${selectedToppings.includes(topping.id)
+                                ? "border-[var(--color-primary)] scale-110 shadow-xl"
+                                : "border-white bg-white group-hover:border-[var(--color-secondary)]"
+                                }`}>
+                                {/* Image Placeholder / Initial */}
+                                <span className={`text-2xl font-bold ${selectedToppings.includes(topping.id) ? "text-[var(--color-primary)]" : "text-gray-400"}`}>
+                                    {topping.nombre.charAt(0)}
+                                </span>
+
+                                {selectedToppings.includes(topping.id) && (
+                                    <div className="absolute inset-0 bg-[var(--color-primary)]/10 flex items-center justify-center">
+                                        <Plus className="w-8 h-8 text-[var(--color-primary)]" />
+                                    </div>
+                                )}
                             </div>
-                            <span className="font-bold text-[var(--color-secondary)]">+{formatPrice(topping.precio)}</span>
+                            <span className="mt-3 font-bold text-[var(--color-primary)]">{topping.nombre}</span>
+                            <span className="text-sm font-messina text-[var(--color-secondary)]">+{formatPrice(topping.precio)}</span>
                         </div>
                     ))}
                 </div>
 
-                <div className="flex justify-between items-center border-t border-gray-100 pt-4">
-                    <div className="text-xl font-bold">Total: {formatPrice(currentPrice)}</div>
-                    <div className="space-x-3">
-                        <button
-                            onClick={onClose}
-                            className="text-gray-500 hover:text-gray-700 px-4 py-2"
-                        >
-                            Cancelar
-                        </button>
-                        <button
-                            onClick={handleConfirm}
-                            className="btn-primary"
-                        >
-                            Agregar al Carrito
-                        </button>
+                <div className="flex flex-col sm:flex-row justify-between items-center bg-white/50 p-6 rounded-[2rem] border border-[var(--color-secondary)]/20">
+                    <div className="text-2xl font-bold text-[var(--color-primary)] mb-4 sm:mb-0">
+                        Total: <span className="font-playfair">{formatPrice(currentPrice)}</span>
                     </div>
+                    <button
+                        onClick={handleConfirm}
+                        className="w-full sm:w-auto px-10 py-4 bg-[var(--color-primary)] text-white font-bold rounded-full hover:shadow-lg hover:scale-105 transition-all text-lg tracking-wide uppercase"
+                    >
+                        Agregar al Carrito
+                    </button>
                 </div>
             </div>
         </div>
@@ -152,7 +163,7 @@ export default function Store() {
                             style={{ animationDelay: `${index * 100}ms` }}
                         >
                             {/* Image Container with Circular Background */}
-                            <div className="relative aspect-square w-full p-8 overflow-hidden bg-[whitesmoke]">
+                            <div className="relative aspect-square w-full p-8 overflow-hidden bg-[whitesmoke] rounded-[2rem]">
                                 <div className="absolute inset-0 m-auto w-[80%] h-[80%] rounded-full bg-[var(--color-secondary)]/5 blur-3xl transform group-hover:scale-125 transition-transform duration-700"></div>
                                 <div className="relative w-full h-full drop-shadow-2xl">
                                     <Image
@@ -160,7 +171,7 @@ export default function Store() {
                                         alt={producto.nombre}
                                         fill
                                         loading="lazy"
-                                        className="object-contain transition-transform duration-700 group-hover:scale-110 group-hover:rotate-3"
+                                        className="object-contain transition-transform duration-700 group-hover:scale-110 group-hover:rotate-3 rounded-[2rem]"
                                     />
                                 </div>
                             </div>

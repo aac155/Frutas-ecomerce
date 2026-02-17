@@ -9,7 +9,7 @@ export default function DiDiButton() {
             href="https://www.didi-food.com" // Placeholder link
             target="_blank"
             rel="noopener noreferrer"
-            className="fixed bottom-6 right-6 z-40 bg-[#FF7D00] text-white p-3 rounded-full shadow-lg hover:scale-110 transition-transform flex items-center justify-center group"
+            className="fixed bottom-64 right-6 z-40 bg-[#FF7D00] text-white p-3 rounded-full shadow-lg hover:scale-110 transition-transform flex items-center justify-center group"
             aria-label="Pedir en DiDi"
         >
             {/* Double Ring Pulse Animation */}

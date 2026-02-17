@@ -2,32 +2,14 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image"; // Added Import
 import { Menu, X, ShoppingBag, User } from "lucide-react";
 import { siteConfig } from "@/config/siteConfig";
 import { useStore } from "@/context/store-context";
 
 export default function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false);
-    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-    const { cart, toggleCart, openAuthModal, user } = useStore();
-
-    const cartCount = cart.reduce((acc, item) => acc + item.quantity, 0);
-
-    useEffect(() => {
-        const handleScroll = () => {
-            setIsScrolled(window.scrollY > 20);
-        };
-        window.addEventListener("scroll", handleScroll);
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
-
-    const navLinks = [
-        { name: "Inicio", href: "#hero" },
-        { name: "Tienda", href: "#store" },
-        { name: "Nosotros", href: "#about" },
-        { name: "Proceso", href: "#process" },
-    ];
-
+    // ... existing code ...
     return (
         <nav
             className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled ? "bg-[var(--color-primary)]/95 backdrop-blur-md shadow-md py-4" : "bg-[var(--color-primary)] py-6"
@@ -35,8 +17,20 @@ export default function Navbar() {
         >
             <div className="container mx-auto px-6 flex items-center justify-between">
                 {/* Logo */}
-                <Link href="/" className="text-2xl font-bold font-heading text-white">
-                    Fruti<span className="text-white/90">Nutric</span>
+                <Link href="/" className="flex items-center gap-2 text-2xl font-bold font-heading text-white">
+                    <div className="relative w-10 h-10 bg-white/20 rounded-full overflow-hidden flex items-center justify-center">
+                        {/* Placeholder or Logo */}
+                        <Image
+                            src={siteConfig.metadata.logoPath || "/img/logo.png"}
+                            alt="Logo"
+                            width={40}
+                            height={40}
+                            className="object-cover"
+                        />
+                    </div>
+                    <span>
+                        Fruti<span className="text-white/90">Nutric</span>
+                    </span>
                 </Link>
 
                 {/* Desktop Nav */}

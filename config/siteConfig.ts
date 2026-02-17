@@ -4,6 +4,7 @@ export const siteConfig = {
   metadata: {
     title: "Frutas Deshidratadas | Colectivo Nutricional",
     description: "La pureza no debería ser un lujo. Frutas deshidratadas de alta calidad.",
+    logoPath: "/img/logo.png",
   },
   colors: {
     background: "#F5F5DC", // Arena
