@@ -38,21 +38,21 @@ export const siteConfig = {
         name: "Platano deshidratado",
         price: 40,
         image: "/img/pla1.jpeg",
-        description: "Dulce y tropical, sin azúcar añadida.",
+        description: "Crocante.",
       },
       {
         id: "p2",
         name: "Piña deshidratada",
         price: 40,
         image: "/img/piña3.jpeg",
-        description: "El equilibrio perfecto entre dulce y picante.",
+        description: "Sabor nutritivo",
       },
       {
         id: "p3",
         name: "Naranja deshidratada",
         price: 40,
         image: "/img/nara2.jpeg",
-        description: "Clásico reconfortante para cualquier hora.",
+        description: "Prueba el sabor de la naranja deshidratada."
       },
       /* {
          id: "p4",
