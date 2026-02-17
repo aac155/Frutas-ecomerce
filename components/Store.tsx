@@ -44,36 +44,35 @@ export default function Store() {
                 </div>
 
                 {/* Flex System: Centered and wrapped */}
-                <div className="flex flex-wrap justify-center gap-12">
+                <div className="flex flex-wrap justify-center gap-8">
                     {sortedProducts.map((producto, index) => (
                         <div
                             key={producto.id}
-                            className={`group relative bg-[whitesmoke] rounded-[3rem] border border-[var(--color-accent)]/20 shadow-sm hover:shadow-2xl transition-all duration-500 overflow-hidden flex flex-col w-full sm:w-[48%] lg:w-[30%] xl:w-[22%] aspect-square hover:scale-105 animate-in fade-in slide-in-from-bottom-8 duration-700`}
-                            style={{ animationDelay: `${index * 100}ms` }}
+                            className={`group relative bg-white rounded-[1.5rem] border border-transparent hover:border-orange-200 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 overflow-hidden flex flex-col w-full sm:w-[45%] lg:w-[30%] xl:w-[22%] aspect-[3/4] animate-in fade-in slide-in-from-bottom-4`}
+                            style={{ animationDelay: `${index * 50}ms` }}
                         >
-                            {/* Image Container */}
-                            <div className="relative w-full h-2/3 p-6 overflow-hidden bg-[whitesmoke] rounded-[2.5rem]">
-                                <div className="absolute inset-0 m-auto w-[80%] h-[80%] rounded-full bg-[var(--color-secondary)]/5 blur-3xl transform group-hover:scale-125 transition-transform duration-700"></div>
-                                <div className="relative w-full h-full drop-shadow-2xl">
-                                    <Image
-                                        src={producto.imagen}
-                                        alt={producto.nombre}
-                                        fill
-                                        loading="lazy"
-                                        className="object-contain transition-transform duration-700 group-hover:scale-110 group-hover:rotate-3 rounded-[2rem]"
-                                    />
-                                </div>
+                            {/* Image Container - Clean & Visible */}
+                            <div className="relative w-full aspect-square overflow-hidden rounded-[1.5rem] p-4">
+                                <Image
+                                    src={producto.imagen}
+                                    alt={producto.nombre}
+                                    fill
+                                    loading="lazy"
+                                    className="object-cover rounded-[1.5rem] transition-transform duration-500 group-hover:scale-105"
+                                />
                             </div>
 
-                            {/* Clean Info & Neon Button */}
-                            <div className="p-6 pt-0 flex flex-col items-center text-center flex-grow justify-end pb-8">
-                                <h3 className="text-2xl font-bold font-heading mb-2 text-[var(--color-primary)]">
-                                    {producto.nombre}
-                                </h3>
+                            {/* Clean Info */}
+                            <div className="p-6 pt-2 flex flex-col items-center text-center flex-grow justify-between">
+                                <div>
+                                    <h3 className="text-xl font-bold font-heading mb-1 text-[var(--color-primary)]">
+                                        {producto.nombre}
+                                    </h3>
 
-                                <span className="text-3xl text-[var(--color-primary)] mb-6 font-[family-name:var(--font-playfair)]">
-                                    MXN {new Intl.NumberFormat('es-MX', { style: 'currency', currency: 'MXN' }).format(producto.precio)}
-                                </span>
+                                    <span className="text-2xl text-[var(--color-secondary)] font-bold block mb-4">
+                                        MXN {new Intl.NumberFormat('es-MX', { style: 'currency', currency: 'MXN' }).format(producto.precio)}
+                                    </span>
+                                </div>
 
                                 <button
                                     onClick={() => handleAddToCart({
@@ -83,10 +82,9 @@ export default function Store() {
                                         image: producto.imagen,
                                         description: producto.descripcion
                                     })}
-                                    className="w-full bg-[var(--color-primary)] text-white py-3 rounded-full font-bold uppercase tracking-wider shadow-lg transition-all duration-300 relative overflow-hidden group/btn border border-white/20 hover:shadow-[0_0_15px_#FF7D00] hover:border-[#FF7D00]/50"
+                                    className="w-full bg-[var(--color-primary)] text-white py-3 rounded-full font-bold uppercase tracking-wide text-sm hover:bg-[var(--color-primary)]/90 transition-colors"
                                 >
-                                    <span className="relative z-10">Añadir</span>
-                                    <div className="absolute inset-0 bg-white/20 translate-y-full group-hover/btn:translate-y-0 transition-transform duration-300"></div>
+                                    Añadir
                                 </button>
                             </div>
                         </div>
