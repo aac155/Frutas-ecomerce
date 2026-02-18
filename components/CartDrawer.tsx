@@ -2,7 +2,8 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import { X, Trash2, CreditCard, Banknote, Truck } from "lucide-react";
+import { X, Trash2, CreditCard, Banknote, FileText } from "lucide-react";
+import { siteConfig } from "@/config/siteConfig";
 import { useStore } from "@/context/store-context";
 
 export default function CartDrawer() {
@@ -163,18 +164,61 @@ export default function CartDrawer() {
                     )}
 
                     {checkoutStep === "success" && (
-                        <div className="text-center py-10 animate-in zoom-in duration-300">
-                            <div className="w-24 h-24 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
-                                <Truck className="w-12 h-12" />
+                        <div className="text-center py-8 animate-in zoom-in duration-300">
+                            <div className="w-20 h-20 bg-[#F5F5DC] text-[#4F7942] rounded-full flex items-center justify-center mx-auto mb-6 shadow-sm border border-[#4F7942]/20">
+                                <FileText className="w-10 h-10" />
                             </div>
-                            <h3 className="text-3xl font-bold font-heading text-[var(--color-primary)] mb-4">
-                                ¡Gracias por su compra!
+
+                            <h3 className="text-2xl font-bold font-heading text-[var(--color-primary)] mb-2">
+                                ¡Gracias por tu compra!
                             </h3>
-                            <p className="text-gray-600 mb-8 max-w-xs mx-auto">
-                                Hemos recibido tu pedido. En breve te contactaremos para coordinar la entrega.
+                            <p className="text-gray-600 mb-6 text-sm">
+                                Tu pedido ha sido registrado con éxito. <br />
+                                <span className="font-semibold text-[var(--color-secondary)]">Muestra el ticket digital en sucursal para recibir tus productos.</span>
                             </p>
-                            <button onClick={close} className={buttonClass}>
-                                Volver a la Tienda
+
+                            {/* Digital Ticket */}
+                            <div className="bg-white p-6 rounded-xl shadow-lg border border-gray-200 text-left mb-8 relative mx-2">
+                                {/* Decorator - Ripped Edge Effect or just a Line */}
+                                <div className="border-b-2 border-dashed border-gray-300 mb-4 pb-2 text-center">
+                                    <h4 className="font-bold text-xl text-gray-800 uppercase tracking-widest">FrutiNutric</h4>
+                                    <p className="text-xs text-gray-500">Ticket de Compra</p>
+                                </div>
+
+                                <div className="text-xs text-gray-500 mb-4 space-y-1">
+                                    <p className="flex justify-between"><span>Fecha:</span> <span>{new Date().toLocaleDateString()}</span></p>
+                                    <p className="flex justify-between"><span>Orden:</span> <span className="font-mono text-gray-800 font-bold">#FT-{Math.floor(1000 + Math.random() * 9000)}</span></p>
+                                    <p className="flex justify-between"><span>Sucursal:</span> <span>{siteConfig.contact.address}</span></p>
+                                </div>
+
+                                <div className="border-t border-b border-gray-100 py-3 mb-3 space-y-2">
+                                    {cart.map(item => (
+                                        <div key={item.id} className="flex justify-between text-sm">
+                                            <span className="text-gray-800"><span className="font-bold">{item.quantity}x</span> {item.name}</span>
+                                            <span className="text-gray-600 font-mono">
+                                                {new Intl.NumberFormat('es-MX', { style: 'currency', currency: 'MXN' }).format(item.totalPrice)}
+                                            </span>
+                                        </div>
+                                    ))}
+                                </div>
+
+                                <div className="flex justify-between items-center text-lg font-bold text-[var(--color-primary)] mb-6">
+                                    <span>Total</span>
+                                    <span>{new Intl.NumberFormat('es-MX', { style: 'currency', currency: 'MXN' }).format(cart.reduce((a, c) => a + c.totalPrice, 0))}</span>
+                                </div>
+
+                                <div className="text-center">
+                                    <p className="text-[10px] text-gray-400 uppercase tracking-wide">Gracias por su preferencia</p>
+                                </div>
+                            </div>
+
+                            <button className="w-full bg-[#4F7942] text-white py-3 rounded-full font-bold shadow-md hover:shadow-lg hover:bg-[#3E5F33] transition-all flex items-center justify-center gap-2 mb-3">
+                                <FileText className="w-5 h-5" />
+                                Descargar Ticket PDF
+                            </button>
+
+                            <button onClick={close} className="text-sm text-gray-500 hover:text-gray-800 underline">
+                                Cerrar Ventana
                             </button>
                         </div>
                     )}
