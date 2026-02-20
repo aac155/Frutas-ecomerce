@@ -1,4 +1,4 @@
-import { MapPin, Phone, Mail, Facebook, Twitter, Instagram } from "lucide-react";
+/* import { MapPin, Phone, Mail, Facebook, Twitter, Instagram } from "lucide-react";
 
 export const siteConfig = {
   metadata: {
@@ -139,4 +139,4 @@ export const siteConfig = {
     { id: 3, user: "Luisa P.", text: "La piña es mi favorita.", rating: 4 },
     { id: 4, user: "Jorge R.", text: "¡Los recomiendo!", rating: 5 },
   ],
-};
+};  */
