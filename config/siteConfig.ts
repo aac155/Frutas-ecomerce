@@ -23,7 +23,7 @@ export const siteConfig = {
     whatsapp: "https://wa.me/521234567890",
   },
   contact: {
-    address: "Tlahuac Ciudad de México",
+    address: "Piñuelas 112, Predio El Molino, Iztapalapa, 09960, Ciudad de México, CDMX, ",
     email: "contacto@frutasdesh.com",
     phone: "+52 55 1234 5678",
   },
