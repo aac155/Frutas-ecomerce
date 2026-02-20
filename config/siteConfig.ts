@@ -3,7 +3,7 @@ import { MapPin, Phone, Mail, Facebook, Twitter, Instagram } from "lucide-react"
 export const siteConfig = {
   metadata: {
     title: "Frutas Deshidratadas | Colectivo Nutricional",
-    description: "La pureza no debería ser un lujo. Frutas deshidratadas de alta calidad.",
+    description: " Frutas deshidratadas de calidad, 100% naturales.",
     logoPath: "/img/logo.jpeg",
   },
   colors: {
