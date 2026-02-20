@@ -81,31 +81,31 @@ export const siteConfig = {
     title: "Nosotros",
     items: [
       {
-        title: "Propuesta de Valor",
+        title: "Snacks nutritivos y prácticos ",
         image: "/img/Val1.jpg",
-        text: "Calidad premium accesible para todos.",
+        text: "Hábitos saludables de forma sencilla y confiable.",
       },
       {
-        title: "Responsabilidad Social",
+        title: "Trabajamos con dedicación para generar confianza en clientes",
         image: "/img/val2.jpg",
-        text: "Apoyamos a pequeños productores locales.",
+        text: "Familias que buscan opciones de alimentación saludable.",
       },
       {
-        title: "Sostenibilidad",
+        title: "Reducción de desperdicios",
         image: "/img/Val3.jpg",
-        text: "Empaques biodegradables y procesos limpios.",
+        text: "Fruta completamente natural, libre de conservadores",
       },
     ],
   },
   pillars: {
     mission: {
       title: "Misión",
-      text: "Nutrir vidas con la esencia pura de la fruta.",
+      text: "Producir frutas deshidratadas 100 % naturales ",
       image: "/img/Misi1.jpeg",
     },
     vision: {
       title: "Visión",
-      text: "Ser el referente de snacks saludables en México.",
+      text: "Ser una microempresa reconocida por impulsar una nueva generación de consumo saludable",
       image: "/img/visi1.jpg",
     },
     values: {
@@ -122,7 +122,7 @@ export const siteConfig = {
   certifications: [
     { name: "ISO 9001", icon: "iso9001", description: "Gestión de Calidad Certificada" },
     { name: "ISO 22000", icon: "iso22000", description: "Seguridad Alimentaria Garantizada" },
-    { name: "NOM-051", icon: "nom051", description: "Cumplimiento de Etiquetado" },
+    { name: "NOM-120", icon: "nom120", description: "Condiciones sanitarias en la preparación de alimentos" },
     { name: "NOM-251", icon: "nom251", description: "Prácticas de Higiene" },
   ],
   process: {
